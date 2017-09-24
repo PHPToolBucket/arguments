@@ -3,6 +3,12 @@
 Returns all the arguments to a function. Unlike `func_get_args()` it includes also the
 arguments that were omitted.
 
+## Composer Installation
+
+```
+composer require php-tool-bucket/arguments
+```
+
 ## Simple example:
 
 ```php
