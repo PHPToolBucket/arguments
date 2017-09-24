@@ -1,5 +1,5 @@
 {
-    "name": "PHPToolBucket/arguments",
+    "name": "phptoolbucket/arguments",
     "description": "Returns all the arguments to a function. Unlike `func_get_args()`, it includes also the arguments that were omitted.",
     "keywords": ["func_get_args", "delegation", "wrapping", "forwarding"],
     "homepage": "https://github.com/PHPToolBucket/arguments",
