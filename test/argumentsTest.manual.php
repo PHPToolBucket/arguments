@@ -1,6 +1,10 @@
-<?php declare(strict_types = 1); // atom
+<?php declare(strict_types = 1);
+
+//[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
 use function PHPToolBucket\Bucket\arguments;
+
+//[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
 require(__DIR__ . "/../vendor/autoload.php");
 

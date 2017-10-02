@@ -4,11 +4,9 @@ namespace PHPToolBucket\Bucket\Tests;
 
 //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 
-use function debug_backtrace;
 use function PHPToolBucket\Bucket\arguments;
 use PHPUnit\Framework\TestCase;
 use Error;
-use Throwable;
 
 //[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
 

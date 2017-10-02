@@ -43,4 +43,16 @@ class mergeArgumentsTest extends TestCase
         $result = mergeArguments($closure, [11, 22]);
         self::assertSame([11, 22, 77, 88], $result);
     }
+
+    function test_variadic(){
+        $closure = function($a, int ...$b){};
+        $result = mergeArguments($closure, [11, 22, 33]);
+        self::assertSame([11, 22, 33], $result);
+
+        $result = mergeArguments($closure, [11, 22]);
+        self::assertSame([11, 22], $result);
+
+        $result = mergeArguments($closure, [11]);
+        self::assertSame([11], $result);
+    }
 }

@@ -7,7 +7,6 @@ namespace PHPToolBucket\Bucket;
 use function count;
 use function substr;
 use function debug_backtrace;
-use const DEBUG_BACKTRACE_PROVIDE_OBJECT;
 use ReflectionFunction;
 use Closure;
 use Error;
@@ -32,6 +31,9 @@ function mergeArguments(Closure $closure, array $givenArguments): array{
     $RPs = $RF->getParameters();
 
     for($index = count($givenArguments); $index < count($RPs); $index++){
+        if($RPs[$index]->isVariadic()){
+            break;
+        }
         $givenArguments[] = $RPs[$index]->getDefaultValue();
     }
 
