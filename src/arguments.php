@@ -95,15 +95,21 @@ function arguments(): array{
         isset($frame["object"]) &&
         $frame["type"] === "->"
     ){
-        $closure = Closure::fromCallable([$frame["object"], $frame["function"]]);
+        $closure = (function() use($frame){
+            return Closure::fromCallable([$frame["object"], $frame["function"]]);
+        })->call($frame["object"]);
     }elseif(
         isset($frame["class"]) &&
         $frame["type"] === "::"
     ){
-        $closure = Closure::fromCallable([$frame["class"], $frame["function"]]);
+        $closure = (function() use($frame){
+            return Closure::fromCallable([$frame["class"], $frame["function"]]);
+        })->bindTo(null, $frame["class"])->__invoke();
     }else{
         $closure = Closure::fromCallable($frame["function"]);
     }
 
+    // @TODO this should probably be mergeArguments($RPs, $args), and would probably make
+    // the above Closure::fromCallable a little less terrible
     return mergeArguments($closure, $frame["args"]);
 }
